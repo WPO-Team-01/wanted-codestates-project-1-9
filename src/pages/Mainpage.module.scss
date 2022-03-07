@@ -1,0 +1,34 @@
+.container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 99.8vh;
+  border: 1px solid #ccc;
+  .header_container {
+    width: 100%;
+    height: 5rem;
+  }
+  .tab_menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 85.66px;
+    background-color: #f9f9f9;
+    .tag {
+      height: 3vh;
+      padding: 0.7rem 1rem 0.5rem;
+      border-radius: 3rem;
+      background-color: #e7e8f9;
+      color: #4348a2;
+      margin-left: 1vw;
+      font-size: 1.2rem;
+      text-align: center;
+      line-height: 3vh;
+    }
+  }
+  #view_container {
+    width: 100%;
+    height: 81.7vh;
+  }
+}
