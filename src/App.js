@@ -1,9 +1,9 @@
 import './App.css';
-
+import MainPage from './pages/Mainpage';
 function App() {
   return (
-    <div className="App">
-     Hello!
+    <div className='App'>
+      <MainPage />
     </div>
   );
 }
