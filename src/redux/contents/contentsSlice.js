@@ -12,9 +12,6 @@ export const contentsSlice = createSlice({
     addReview: (state, action) => {
       state.data.push(action.payload);
     },
-    findReview: (state, action) => {
-      state.data.find((item) => item.id === action.payload);
-    },
     addComment: (state, action) => {
       const review = state.data.find((item) => item.id === action.payload);
       review.comments.push(action.payload.data);
@@ -26,6 +23,6 @@ export const contentsSlice = createSlice({
   },
 });
 
-export const { addReview } = contentsSlice.actions;
+export const { addReview, addComment, likePlus } = contentsSlice.actions;
 
 export default contentsSlice.reducer;
