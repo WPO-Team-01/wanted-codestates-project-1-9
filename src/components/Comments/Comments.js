@@ -9,17 +9,17 @@ import { addComment } from "../../redux/contents/contentsSlice";
 import { customAlphabet } from "nanoid";
 
 const Comments = ({ comments, id }) => {
-  const [inputOpen, setinputOpen] = useState(false);
-  const [inputIndex, setInputIndex] = useState(0);
+  const [inputOpen, setInputOpen] = useState(false);
+  const [inputId, setInputId] = useState(0);
   const nanoid = customAlphabet("123456789", 9);
   const [text, setText] = useState("");
   const dispatch = useDispatch();
 
-  const handleIndex = (index) => {
-    setInputIndex(index);
+  const handleInputId = (id) => {
+    setInputId(id);
   };
 
-  const uploadComment = (target) => {
+  const uploadComment = () => {
     if (text === "") {
       alert("내용을 입력해 주세요.");
     } else {
@@ -36,10 +36,10 @@ const Comments = ({ comments, id }) => {
             regdt: new Date().toISOString(),
             target_nickname: "비로그인Id",
           },
-        }),
+        })
       );
       setText("");
-      setinputOpen(false);
+      setInputOpen(false);
     }
   };
 
@@ -60,10 +60,10 @@ const Comments = ({ comments, id }) => {
             depth: 1,
             target_nickname: target.nickname,
           },
-        }),
+        })
       );
       setText("");
-      setinputOpen(false);
+      setInputOpen(false);
     }
   };
 
@@ -85,11 +85,10 @@ const Comments = ({ comments, id }) => {
           <div key={index}>
             <Comment
               comment={comment}
-              index={index}
               inputOpen={inputOpen}
-              setinputOpen={setinputOpen}
-              inputIndex={inputIndex}
-              handleIndex={handleIndex}
+              setInputOpen={setInputOpen}
+              inputId={inputId}
+              handleInputId={handleInputId}
               text={text}
               setText={setText}
               uploadComment={uploadReComment}
@@ -98,11 +97,10 @@ const Comments = ({ comments, id }) => {
               <Recomment
                 key={reco.id}
                 comment={reco}
-                index={idx}
                 inputOpen={inputOpen}
-                setinputOpen={setinputOpen}
-                inputIndex={inputIndex}
-                handleIndex={handleIndex}
+                setInputOpen={setInputOpen}
+                inputId={inputId}
+                handleInputId={handleInputId}
                 text={text}
                 setText={setText}
                 uploadComment={uploadReComment}
