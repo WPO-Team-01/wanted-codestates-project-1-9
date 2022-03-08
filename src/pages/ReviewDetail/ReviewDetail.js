@@ -6,9 +6,12 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const ReviewDetail = () => {
-  const data = useSelector((state) => state.contents.data);
+  let state = useSelector((state) => state);
+
   const params = useParams();
-  const selectedReview = data.filter((item) => item.id === Number(params.id));
+  const selectedReview = state.contents.data.filter(
+    (item) => item.id === Number(params.id)
+  );
 
   return (
     <div className={styles.container}>
