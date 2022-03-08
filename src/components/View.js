@@ -63,7 +63,7 @@ function View({ list }) {
         {/*리뷰 보여지는 부분 */}
         {isGrid ? (
           <>
-            {initialData.slice(0, itemCount).map((elem, index) => (
+            {list.slice(0, itemCount).map((elem, index) => (
               <div key={index}>
                 <Link to = {`/${elem.id}`}>
                 <img
@@ -78,7 +78,7 @@ function View({ list }) {
         ) : (
           <>
             <div className={styles.content_list}>
-              {initialData.slice(0, itemCount).map((elem, index) => (
+              {list.slice(0, itemCount).map((elem, index) => (
                 <div className={reviewStyles.container} key={elem.id}>
                   <ReviewContent data={elem} />
                   <Comments comments={elem.comment} />

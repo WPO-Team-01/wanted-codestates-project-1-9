@@ -67,7 +67,7 @@ const ReviewContent = ({ data }) => {
 
         {/* img */}
         <div>
-          <img src={data.img} key={data.id} alt="" className={styles.img} />
+          <img src={data.img[0]} key={data.id} alt="" className={styles.img} />
         </div>
         {/* function bar */}
         <div className={styles.contentHeader}>

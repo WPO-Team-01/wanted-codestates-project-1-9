@@ -9,10 +9,11 @@ import { useParams } from 'react-router-dom';
 const ReviewDetail = () => {
   let state = useSelector((state) => state);
   const selectId = useParams().selectId;
-  const params = useParams();
+
   const selectedReview = state.contents.data.filter(
-    (item) => item.id === Number(params.id)
+    (item) => item.id === Number(selectId)
   );
+
 
   return (
     <div className={styles.container}>

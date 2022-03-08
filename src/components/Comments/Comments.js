@@ -15,15 +15,12 @@ const Comments = ({ comments, id }) => {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
 
-  console.log({ text });
-  console.log({ id });
 
   const handleIndex = (index) => {
     setInputIndex(index);
   };
 
   const uploadComment = (target) => {
-    console.log({ target });
     if (text === "") {
       alert("내용을 입력해 주세요.");
     } else {
@@ -45,7 +42,6 @@ const Comments = ({ comments, id }) => {
   };
 
   const uploadReComment = (target) => {
-    console.log({ target });
     if (text === "") {
       alert("내용을 입력해 주세요.");
     } else {
