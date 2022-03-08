@@ -4,7 +4,6 @@ import styles from "./Comments.module.scss";
 import Input from "./Input";
 import Comment from "./Comment";
 import Recomment from "./Recomment";
-import { CommentTwoTone } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { addComment } from "../../redux/contents/contentsSlice";
 import { customAlphabet } from "nanoid";
