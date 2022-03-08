@@ -1,8 +1,10 @@
 .container {
   width: 500px;
-  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   border: 1px solid rebeccapurple;
   margin: 0 auto;
+  position: relative;
 
   .detailHeader {
     display: flex;
@@ -14,6 +16,7 @@
     .icon {
       width: 1.5rem;
       height: 1.5rem;
+      cursor: pointer;
     }
 
     span {
@@ -28,7 +31,8 @@
     align-items: center;
 
     span {
-      color: gray;
+      color: #999;
+      font-weight: 500;
       margin-right: 1rem;
     }
 
@@ -36,6 +40,7 @@
       flex-grow: 1;
       text-align: left;
       color: #222;
+      font-size: 1.2rem;
       font-weight: 600;
     }
 
@@ -43,6 +48,7 @@
       position: relative;
       .more {
         width: 2rem;
+        cursor: pointer;
       }
 
       .reportModal {
@@ -77,16 +83,34 @@
       .thumbIcon {
         margin-right: 0.5rem;
         width: 2rem;
+        cursor: pointer;
       }
     }
 
     .shareIcon {
       width: 2rem;
+      cursor: pointer;
     }
 
     .heartIcon {
       margin-left: auto;
       width: 1.8rem;
+      cursor: pointer;
+    }
+  }
+
+  .linkWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .urlIcon {
+      width: 5rem;
+      height: 5rem;
     }
   }
 
@@ -94,7 +118,6 @@
     .img {
       background-color: gray;
       width: 100%;
-      height: 400px;
     }
   }
 
