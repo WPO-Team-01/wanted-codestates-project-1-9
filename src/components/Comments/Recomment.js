@@ -42,7 +42,7 @@ const Recomment = ({
               handleIndex(index);
             }}
           >
-            {inputOpen ? "답글 취소" : "답글 달기"}
+            {index === inputIndex && inputOpen ? "답글 취소" : "답글 달기"}
           </span>
         </div>
       </section>
