@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wanted-codestates-project-1-9/static/css/main.ef4179c5.css",
+    "main.js": "/wanted-codestates-project-1-9/static/js/main.c1eefdba.js",
+    "index.html": "/wanted-codestates-project-1-9/index.html",
+    "main.ef4179c5.css.map": "/wanted-codestates-project-1-9/static/css/main.ef4179c5.css.map",
+    "main.c1eefdba.js.map": "/wanted-codestates-project-1-9/static/js/main.c1eefdba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef4179c5.css",
+    "static/js/main.c1eefdba.js"
+  ]
+}
