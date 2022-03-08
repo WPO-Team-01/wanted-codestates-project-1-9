@@ -13,7 +13,7 @@ export const contentsSlice = createSlice({
       state.data.push(action.payload);
     },
     addComment: (state, action) => {
-      const review = state.data.find(item => item.id === action.payload);
+      const review = state.data.find((item) => item.id === action.payload.id);
       review.comment.push(action.payload.data);
     },
     likePlus: (state, action) => {

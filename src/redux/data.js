@@ -8533,6 +8533,6 @@ export const initialData = datas.map(data => ({
   point: data.point,
   like: data.like,
   thumbnail: `https://i.balaan.io/review/${data.thumbnail}`,
-  img: data.img.map(i => `https://i.balaan.io/review/${i}`),
+  img: data.img.map((i) => `https://i.balaan.io/review/${i}`),
   comment: commentByReviewId[data.id] ?? [],
 }));
