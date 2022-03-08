@@ -1,13 +1,13 @@
 import styles from "../../pages/ReviewDetail/ReviewDetail.module.scss";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import CloseIcon from "@mui/icons-material/Close";
+import back from "../../images/back_btn.png";
+import close from "../../images/close_btn.png";
 
 const ReviewDetail = () => {
   return (
     <div className={styles.detailHeader}>
-      <ArrowBackIcon />
+      <img src={back} className={styles.icon} alt="back icon" />
       <span>리뷰 상세보기</span>
-      <CloseIcon />
+      <img src={close} className={styles.icon} alt="close icon" />
     </div>
   );
 };
