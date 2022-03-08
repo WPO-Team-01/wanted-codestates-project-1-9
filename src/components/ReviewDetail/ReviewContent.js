@@ -27,7 +27,7 @@ const ReviewContent = ({ data }) => {
     dispatch(
       likePlus({
         id: data.id,
-      })
+      }),
     );
     setIsLike(true);
   };
@@ -116,7 +116,7 @@ const ReviewContent = ({ data }) => {
         {/* review */}
         <div className={styles.contentComment}>
           <img src={star} className={styles.starIcon} alt="star icon" />
-          {data.point >= 2 ? (
+          {data.point > 1 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -125,7 +125,7 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {data.point >= 3 ? (
+          {data.point > 2 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -134,7 +134,7 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {data.point >= 4 ? (
+          {data.point > 3 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -143,7 +143,7 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {data.point >= 5 ? (
+          {data.point > 4 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img

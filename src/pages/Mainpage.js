@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import styles from './Mainpage.module.scss';
 import Header from '../components/Header';
@@ -7,18 +7,22 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function MainPage() {
-  const data = useSelector(state => state.contents.data);
-
-  const [filter, setFilter] = useState('latest');
+  const data = useSelector((state) => state.contents.data);
+  const [filter, setFilter] = useState("latest");
   const [list, setList] = useState(data);
 
-  const handleChangeFilter = f => {
+  const handleChangeFilter = (f) => {
     setFilter(f);
   };
 
   useEffect(() => {
-    if (filter === 'latest') setList(data);
-    else if (filter === 'review') {
+    if (filter === 'latest') {
+      let arr = data.slice();
+      let orderedDate = arr.sort(
+        (a, b) => new Date(b.regdt) - new Date(a.regdt),
+      );
+      setList(orderedDate);
+    } else if (filter === 'review') {
       let slice = data.slice();
       slice.sort((a, b) => {
         //comment가 없으면 value가 undefined
@@ -29,7 +33,7 @@ function MainPage() {
         return bLength - aLength;
       });
       setList(slice);
-    } else if (filter === 'random') {
+    } else if (filter === "random") {
       let slice2 = data.slice();
       slice2.sort(() => Math.random() - 0.5);
       setList(slice2);
@@ -42,29 +46,29 @@ function MainPage() {
         <Header />
       </div>
       <div className={styles.reviewContainer}>
-      <Link to="/review" style={{ textDecoration: "none" }}>
-        <div className={styles.writeReview}>
-          리뷰 작성
-          </div>
-      </Link>
+        <Link to='/review' style={{ textDecoration: 'none' }}>
+          <div className={styles.writeReview}>리뷰 작성</div>
+        </Link>
       </div>
-      
 
       <div className={styles.tab_menu}>
         <div
           className={styles.tag}
+          id={filter === 'latest' ? styles.latestOn : styles.latestOff}
           onClick={() => handleChangeFilter('latest')}
         >
           최신순
         </div>
         <div
           className={styles.tag}
+          id={filter === 'review' ? styles.reviewOn : styles.reviewOff}
           onClick={() => handleChangeFilter('review')}
         >
           리뷰카운트순
         </div>
         <div
           className={styles.tag}
+          id={filter === 'random' ? styles.randomOn : styles.randomOff}
           onClick={() => handleChangeFilter('random')}
         >
           랜덤

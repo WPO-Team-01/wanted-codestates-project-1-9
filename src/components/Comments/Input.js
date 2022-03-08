@@ -7,6 +7,12 @@ const Input = ({ text, setText, uploadComment, target }) => {
     setText(e.target.value);
   };
 
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      uploadComment(target);
+    }
+  };
+
   return (
     <>
       <div className={classNames(styles.uploadComment)}>
@@ -15,6 +21,7 @@ const Input = ({ text, setText, uploadComment, target }) => {
           placeholder="로그인후 댓글 작성이 가능합니다."
           onChange={(e) => handleInputText(e)}
           value={text}
+          onKeyPress={(e) => onKeyPress(e)}
         />
         <button
           className={classNames(styles.upload)}
