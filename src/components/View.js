@@ -3,7 +3,8 @@ import grid from "../images/tab_icon.png";
 import list from "../images/tab_icon_2.png";
 import { useState, useEffect } from "react";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
-import {initialData} from "../redux/data"
+import { initialData } from "../redux/data";
+import { useSelector  } from 'react-redux';
 
 const fakeFetch = (delay = 1000) =>
   new Promise((res) => setTimeout(res, delay));
@@ -11,6 +12,7 @@ const fakeFetch = (delay = 1000) =>
 function View() {
   const [isGrid, setIsGrid] = useState(true);
   const [state, setState] = useState({ itemCount: 15, isLoading: false });
+  const getLists = useSelector((state) => state.contents.data);
 
   /* fake async fetch */
   const fetchItems = async () => {
@@ -24,6 +26,7 @@ function View() {
 
   useEffect(() => {
     fetchItems();
+    console.log(getLists);
   }, []);
 
   const [_, setRef] = useInfiniteScroll(async (entry, observer) => {
@@ -60,13 +63,14 @@ function View() {
       {isGrid ? (
         <div className={styles.content_grid}>
           {initialData.slice(0, itemCount).map((elem, index) => (
-            <img
-              key={index}
-              src={elem.thumbnail}
-              style={{ height: "8vh", width: "8vw" }}
-            ></img>
+            <div key={index}>
+              <img
+                src={elem.thumbnail}
+                style={{ height: "165px", width: "165px" }}
+              />
+            </div>
           ))}
-          <div ref={setRef} className="Loading">
+          <div ref={setRef}>
             {isLoading && "Loading..."}
           </div>
         </div>
