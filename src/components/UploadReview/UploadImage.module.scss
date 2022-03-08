@@ -1,0 +1,40 @@
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 200px;
+  margin-left: 30px;
+
+  .images {
+    width: 100px;
+    height: 85px;
+    margin-left: 5px;
+    position: sticky;
+
+    .img {
+      position: sticky;
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+    }
+
+    .button {
+      z-index: 99;
+      position: relative;
+      margin-top: 0;
+      bottom: 120px;
+      color: red;
+      left: 40px;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+.selectImg {
+  padding: 6px 25px;
+  background-color: #000000;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
