@@ -14,6 +14,10 @@ function MainPage() {
   const handleChangeFilter = (f) => {
     setFilter(f);
   };
+  
+  useEffect(()=>{
+    setList(data);
+  }, [data])
 
   useEffect(() => {
     if (filter === 'latest') {

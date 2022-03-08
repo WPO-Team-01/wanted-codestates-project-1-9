@@ -9,6 +9,7 @@ import { addComment } from "../../redux/contents/contentsSlice";
 import { customAlphabet } from "nanoid";
 
 const Comments = ({ comments, id }) => {
+  console.log(comments, id);
   const [inputOpen, setInputOpen] = useState(false);
   const [inputId, setInputId] = useState(0);
   const nanoid = customAlphabet("123456789", 9);
