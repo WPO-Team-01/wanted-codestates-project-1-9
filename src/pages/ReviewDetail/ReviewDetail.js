@@ -42,14 +42,17 @@ const data = {
 };
 const ReviewDetail = () => {
   let state = useSelector((state) => state);
-  console.log(state);
+  console.log(state.contents.data);
   return (
     <div className={styles.container}>
       <div>
         {/* contentHeader */}
         <ReviewDetailHeader />
         <ReviewContent data={data} />
-        <Comments comments={state.contents.data[0].comment} />
+        <Comments
+          comments={state.contents.data[0].comment}
+          id={state.contents.data[0].id}
+        />
       </div>
     </div>
   );

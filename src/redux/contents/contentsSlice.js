@@ -14,7 +14,7 @@ export const contentsSlice = createSlice({
     },
     addComment: (state, action) => {
       const review = state.data.find((item) => item.id === action.payload.id);
-      review.comments.push(action.payload.data);
+      review.comments.ap(action.payload.data);
     },
     likePlus: (state, action) => {
       const review = state.data.find((item) => item.id === action.payload.id);
