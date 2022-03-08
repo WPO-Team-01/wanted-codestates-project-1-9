@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useEffect } from 'react';
 import styles from './Mainpage.module.scss';
 import Header from '../components/Header';
@@ -40,6 +41,15 @@ function MainPage() {
       <div className={styles.header_container}>
         <Header />
       </div>
+      <div className={styles.reviewContainer}>
+      <Link to="/review" style={{ textDecoration: "none" }}>
+        <div className={styles.writeReview}>
+          리뷰 작성
+          </div>
+      </Link>
+      </div>
+      
+
       <div className={styles.tab_menu}>
         <div
           className={styles.tag}
@@ -60,6 +70,7 @@ function MainPage() {
           랜덤
         </div>
       </div>
+
       <div id={styles.view_container}>
         <View list={list} />
       </div>

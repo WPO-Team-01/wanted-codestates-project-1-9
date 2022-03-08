@@ -9,7 +9,6 @@ import url from "../../images/share_url.png";
 import { useState } from "react";
 
 const ReviewContent = ({ data }) => {
-  console.log(data);
   const [reportModalOpen, setReportModalOpen] = useState(false);
   const [urlModalOpen, setUrlModalOpen] = useState(false);
   return (
@@ -40,7 +39,7 @@ const ReviewContent = ({ data }) => {
 
         {/* img */}
         <div>
-          <img src={data.img} alt="" className={styles.img} />
+          <img src={data.img[0]} alt="" className={styles.img} />
           {/* <div className={styles.img}></div> */}
         </div>
         {/* function bar */}

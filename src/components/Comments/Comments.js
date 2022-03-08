@@ -4,8 +4,10 @@ import styles from "./Comments.module.scss";
 import Input from "./Input";
 import Comment from "./Comment";
 import Recomment from "./Recomment";
+import { CommentTwoTone } from '@mui/icons-material';
 import { useDispatch } from "react-redux";
 import { addComment } from "../../redux/contents/contentsSlice";
+
 
 const Comments = ({ comments, id }) => {
   const [inputOpen, setinputOpen] = useState(false);
@@ -63,7 +65,6 @@ const Comments = ({ comments, id }) => {
       setinputOpen(false);
     }
   };
-
   return (
     <section className={classNames(styles.container)}>
       <div className={classNames(styles.subContainer)}>

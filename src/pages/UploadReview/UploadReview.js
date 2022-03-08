@@ -8,6 +8,7 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { addReview } from "../../redux/contents/contentsSlice";
+import { Link } from "react-router-dom";
 
 const UploadReview = () => {
   const [rating, setRating] = useState(0);
@@ -36,7 +37,7 @@ const UploadReview = () => {
         thumbnail: imgBase64[0],
         img: imgBase64.slice(0),
         comment: [],
-      }),
+      })
     );
   };
 
@@ -60,11 +61,15 @@ const UploadReview = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.goBack}>
-          <ArrowBackIcon />
+          <Link to='/'>
+            <ArrowBackIcon />
+          </Link>
         </div>
         <div className={styles.title}>리뷰 등록</div>
         <div className={styles.escape}>
-          <ClearIcon />
+          <Link to='/'>
+            <ClearIcon />
+          </Link>
         </div>
       </div>
       <div className={styles.contentsContainer}>
