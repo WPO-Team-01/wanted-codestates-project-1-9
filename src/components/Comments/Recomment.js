@@ -8,16 +8,16 @@ import Input from "./Input";
 const Recomment = ({
   comment,
   index,
-  inputOpen,
-  setinputOpen,
   inputIndex,
   handleIndex,
   text,
   setText,
   uploadComment,
 }) => {
+  const [isInputOpen, setIsInputOpen] = React.useState(false);
+
   const handleInput = () => {
-    setinputOpen(!inputOpen);
+    setIsInputOpen((prev) => !prev);
   };
 
   return (
@@ -42,16 +42,16 @@ const Recomment = ({
               handleIndex(index);
             }}
           >
-            {inputOpen ? "답글 취소" : "답글 달기"}
+            {isInputOpen ? "답글 취소" : "답글 달기"}
           </span>
         </div>
       </section>
-      {index === inputIndex && inputOpen ? (
+      {index === inputIndex && isInputOpen ? (
         <Input
           text={text}
           setText={setText}
           uploadComment={uploadComment}
-          target={comment.nickname}
+          target={comment}
         />
       ) : null}
     </>

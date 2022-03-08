@@ -4,7 +4,6 @@ import gridImg from '../images/tab_icon.png';
 import listImg from '../images/tab_icon_2.png';
 import { useState, useEffect } from 'react';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
-import { initialData } from '../redux/data';
 import ReviewContent from './ReviewDetail/ReviewContent';
 import Comments from './Comments/Comments';
 import { Link } from 'react-router-dom';
@@ -74,7 +73,7 @@ function View({ list }) {
         ) : (
           <>
             <div className={styles.content_list}>
-              {initialData.slice(0, itemCount).map((elem, index) => (
+              {list.slice(0, itemCount).map((elem, index) => (
                 <div className={reviewStyles.container} key={elem.id}>
                   <ReviewContent data={elem} />
                   <Comments comments={elem.comment} />
