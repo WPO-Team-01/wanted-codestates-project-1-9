@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './Mainpage.module.scss';
-import Header from '../components/Header';
-import View from '../components/View';
+import React from "react";
+import styles from "./Mainpage.module.scss";
+import Header from "../components/Header";
+import View from "../components/View";
+import { Link } from "react-router-dom";
 
 function MainPage() {
   return (
@@ -9,11 +10,21 @@ function MainPage() {
       <div className={styles.header_container}>
         <Header />
       </div>
+      <div className={styles.reviewContainer}>
+      <Link to="/review" style={{ textDecoration: "none" }}>
+        <div className={styles.writeReview}>
+          리뷰 작성
+          </div>
+      </Link>
+      </div>
+      
+
       <div className={styles.tab_menu}>
         <div className={styles.tag}>최신순</div>
         <div className={styles.tag}>리뷰카운트순</div>
         <div className={styles.tag}>랜덤</div>
       </div>
+
       <div id={styles.view_container}>
         <View />
       </div>

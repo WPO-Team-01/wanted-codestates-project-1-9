@@ -4,6 +4,7 @@ import styles from "./Comments.module.scss";
 import Input from "./Input";
 import Comment from "./Comment";
 import Recomment from "./Recomment";
+import { CommentTwoTone } from '@mui/icons-material';
 
 const Comments = ({ comments }) => {
   const [inputOpen, setinputOpen] = useState(false);
@@ -18,7 +19,6 @@ const Comments = ({ comments }) => {
       <div className={classNames(styles.subContainer)}>
         {comments.map((comment, index) =>
           comment.target_nickname === null ? (
-            <>
               <Comment
                 key={index}
                 comment={comment}
@@ -28,9 +28,7 @@ const Comments = ({ comments }) => {
                 inputIndex={inputIndex}
                 handleIndex={handleIndex}
               />
-            </>
           ) : (
-            <>
               <Recomment
                 key={index}
                 comment={comment}
@@ -40,7 +38,6 @@ const Comments = ({ comments }) => {
                 inputIndex={inputIndex}
                 handleIndex={handleIndex}
               />
-            </>
           )
         )}
       </div>

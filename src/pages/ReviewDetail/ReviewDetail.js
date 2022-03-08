@@ -3,6 +3,7 @@ import ReviewDetailHeader from "../../components/ReviewDetail/ReviewDetailHeader
 import ReviewContent from "../../components/ReviewDetail/ReviewContent";
 import Comments from "../../components/Comments/Comments";
 import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 
 const data = {
   comment: [
@@ -41,8 +42,8 @@ const data = {
     "https://i.balaan.io/review/44cbea94e62dc80fbc4ecfed4b73e29a-t.jpeg",
 };
 const ReviewDetail = () => {
+  const selectId = useParams().selectId
   let state = useSelector((state) => state);
-  console.log(state);
   return (
     <div className={styles.container}>
       <div>
