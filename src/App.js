@@ -1,9 +1,13 @@
-import './App.css';
-import MainPage from './pages/Mainpage';
+import "./App.css";
+import ReviewContent from "./components/ReviewDetail/ReviewContent";
+import ReviewDetail from "./pages/ReviewDetail/ReviewDetail";
+import MainPage from "./pages/Mainpage";
+
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <MainPage />
+      {/* <ReviewDetail /> */}
     </div>
   );
 }
