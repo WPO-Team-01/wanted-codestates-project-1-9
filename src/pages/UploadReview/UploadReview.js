@@ -88,7 +88,7 @@ const UploadReview = () => {
           </div>
           <div className={styles.upload}>
             <button type="submit" className={styles.uploadBtn}>
-              업로드
+              올리기
             </button>
           </div>
         </form>
