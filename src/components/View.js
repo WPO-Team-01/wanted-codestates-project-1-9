@@ -60,7 +60,7 @@ function View({ list }) {
           <>
             {list.slice(0, itemCount).map((elem, index) => (
               <div key={index}>
-                <Link to={`/${elem.id}`}>
+                <Link to={`/item/${elem.id}`}>
                   <img
                     src={elem.thumbnail}
                     style={{ height: '165px', width: '165px' }}
