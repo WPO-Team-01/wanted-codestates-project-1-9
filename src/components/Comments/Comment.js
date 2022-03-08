@@ -12,11 +12,13 @@ const Comment = ({
   setinputOpen,
   inputIndex,
   handleIndex,
+  text,
+  setText,
+  uploadComment,
 }) => {
   const handleInput = () => {
     setinputOpen(!inputOpen);
   };
-
   return (
     <>
       <section className={classNames(styles.comment)}>
@@ -38,7 +40,14 @@ const Comment = ({
           </span>
         </div>
       </section>
-      {index === inputIndex && inputOpen ? <Input /> : null}
+      {index === inputIndex && inputOpen ? (
+        <Input
+          text={text}
+          setText={setText}
+          uploadComment={uploadComment}
+          target={comment.nickname}
+        />
+      ) : null}
     </>
   );
 };

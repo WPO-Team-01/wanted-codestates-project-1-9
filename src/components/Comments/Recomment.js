@@ -12,6 +12,9 @@ const Recomment = ({
   setinputOpen,
   inputIndex,
   handleIndex,
+  text,
+  setText,
+  uploadComment,
 }) => {
   const handleInput = () => {
     setinputOpen(!inputOpen);
@@ -20,7 +23,12 @@ const Recomment = ({
   return (
     <>
       <section className={classNames(styles.recomment)}>
-        <span className={classNames(styles.writer)}>{comment.nickname}</span>
+        <div className={classNames(styles.writer)}>
+          {comment.nickname}
+          <span className={classNames(styles.reWriter)}>
+            @{comment.target_nickname}
+          </span>
+        </div>
         <div className={classNames(styles.content)}>{comment.contents}</div>
         <div className={classNames(styles.addon)}>
           <span className={classNames(styles.date)}>
@@ -38,7 +46,14 @@ const Recomment = ({
           </span>
         </div>
       </section>
-      {index === inputIndex && inputOpen ? <Input /> : null}
+      {index === inputIndex && inputOpen ? (
+        <Input
+          text={text}
+          setText={setText}
+          uploadComment={uploadComment}
+          target={comment.nickname}
+        />
+      ) : null}
     </>
   );
 };
