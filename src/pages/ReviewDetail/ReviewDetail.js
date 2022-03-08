@@ -10,9 +10,8 @@ const ReviewDetail = () => {
   const selectId = useParams().selectId;
 
   const selectedReview = state.contents.data.filter(
-    (item) => item.id === Number(selectId)
+    (item) => item.id === Number(selectId),
   );
-
 
   return (
     <div className={styles.container}>

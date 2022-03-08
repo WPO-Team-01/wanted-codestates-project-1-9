@@ -19,7 +19,18 @@ const UploadReview = () => {
   const navigate = useNavigate();
   const nanoid = customAlphabet("123456789", 9);
 
-  const date = new Date().toISOString();
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = ("0" + (today.getMonth() + 1)).slice(-2);
+  const day = ("0" + today.getDate()).slice(-2);
+
+  const hours = ("0" + today.getHours()).slice(-2);
+  const minutes = ("0" + today.getMinutes()).slice(-2);
+  const seconds = ("0" + today.getSeconds()).slice(-2);
+
+  const timeString = hours + ":" + minutes + ":" + seconds;
+  const dateString = year + "-" + month + "-" + day;
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -31,16 +42,16 @@ const UploadReview = () => {
 
     dispatch(
       addReview({
-        id: nanoid(),
+        id: Number(nanoid()),
         nickname: nickname,
         contents: contents,
-        regdt: date,
+        regdt: dateString + " " + timeString,
         point: rating,
         like: 0,
         thumbnail: imgBase64[0],
         img: imgBase64.slice(0),
         comment: [],
-      })
+      }),
     );
 
     navigate("/");

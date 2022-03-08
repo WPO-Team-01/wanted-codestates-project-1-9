@@ -7,12 +7,11 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function MainPage() {
-  const data = useSelector(state => state.contents.data);
-
-  const [filter, setFilter] = useState('latest');
+  const data = useSelector((state) => state.contents.data);
+  const [filter, setFilter] = useState("latest");
   const [list, setList] = useState(data);
 
-  const handleChangeFilter = f => {
+  const handleChangeFilter = (f) => {
     setFilter(f);
   };
 
@@ -34,7 +33,7 @@ function MainPage() {
         return bLength - aLength;
       });
       setList(slice);
-    } else if (filter === 'random') {
+    } else if (filter === "random") {
       let slice2 = data.slice();
       slice2.sort(() => Math.random() - 0.5);
       setList(slice2);
@@ -55,19 +54,19 @@ function MainPage() {
       <div className={styles.tab_menu}>
         <div
           className={styles.tag}
-          onClick={() => handleChangeFilter('latest')}
+          onClick={() => handleChangeFilter("latest")}
         >
           최신순
         </div>
         <div
           className={styles.tag}
-          onClick={() => handleChangeFilter('review')}
+          onClick={() => handleChangeFilter("review")}
         >
           리뷰카운트순
         </div>
         <div
           className={styles.tag}
-          onClick={() => handleChangeFilter('random')}
+          onClick={() => handleChangeFilter("random")}
         >
           랜덤
         </div>
