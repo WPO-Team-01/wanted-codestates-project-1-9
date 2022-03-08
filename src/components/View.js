@@ -76,7 +76,7 @@ function View({ list }) {
               {list.slice(0, itemCount).map((elem, index) => (
                 <div className={reviewStyles.container} key={elem.id}>
                   <ReviewContent data={elem} />
-                  <Comments comments={elem.comment} />
+                  <Comments comments={elem.comment} id={elem.id}/>
                 </div>
               ))}
             </div>
