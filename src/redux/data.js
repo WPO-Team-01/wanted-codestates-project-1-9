@@ -8515,6 +8515,9 @@ const commentByReviewId = comments.reduce((acc, curr) => {
     [curr.review_id]: [
       ...(acc[curr.review_id] ?? []),
       {
+        id: curr.id,
+        target_id: curr.target_id,
+        parent_id: curr.parent_id,
         nickname: curr.nickname,
         regdt: curr.regdt,
         contents: curr.contents,
