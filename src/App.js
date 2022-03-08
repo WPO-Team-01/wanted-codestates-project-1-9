@@ -2,20 +2,20 @@ import "./App.css";
 import ReviewContent from "./components/ReviewDetail/ReviewContent";
 import ReviewDetail from "./pages/ReviewDetail/ReviewDetail";
 import MainPage from "./pages/Mainpage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UploadReview from './pages/UploadReview/UploadReview';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<MainPage />}></Route>
-          <Route path="/:id" element={<ReviewDetail />}></Route>
-          {/* <MainPage />
-          <ReviewDetail /> */}
+          <Route path='/' element={<MainPage />} />
+          <Route path='/:selectId' element={<ReviewDetail />} />
+          <Route path='/review' element={<UploadReview />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

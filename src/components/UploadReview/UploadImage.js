@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./UploadImage.module.scss";
 import ClearIcon from "@mui/icons-material/Clear";
 
-const UploadImage = ({ onChange }) => {
-  const [imgBase64, setImgBase64] = useState([]);
-
+const UploadImage = ({ onRemoveFile, setImgBase64, imgBase64 }) => {
   const onChangeFile = (event) => {
     setImgBase64([]);
     for (var i = 0; i < event.target.files.length; i++) {
@@ -17,15 +15,10 @@ const UploadImage = ({ onChange }) => {
             var base64Sub = base64.toString();
 
             setImgBase64((imgBase64) => [...imgBase64, base64Sub]);
-            onChange(base64Sub);
           }
         };
       }
     }
-  };
-
-  const onRemoveFile = (id) => {
-    setImgBase64((prev) => prev.filter((item) => item !== id));
   };
 
   return (

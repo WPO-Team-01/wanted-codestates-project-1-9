@@ -13,7 +13,6 @@ import { useDispatch } from "react-redux";
 import { likePlus } from "../../redux/contents/contentsSlice";
 
 const ReviewContent = ({ data }) => {
-  console.log(data);
   const [reportModalOpen, setReportModalOpen] = useState(false);
   const [urlModalOpen, setUrlModalOpen] = useState(false);
   const [isLike, setIsLike] = useState(false);

@@ -8,18 +8,20 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { addReview } from "../../redux/contents/contentsSlice";
+import { Link } from "react-router-dom";
 
 const UploadReview = () => {
   const [rating, setRating] = useState(0);
   const [nickname, setNickname] = useState("");
   const [contents, setContents] = useState("");
-  const [upload, setUpload] = useState([]);
+  const [imgBase64, setImgBase64] = useState([]);
   const dispatch = useDispatch();
+  const date = new Date().toISOString();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!rating || !nickname || !contents || upload.length === 0) {
+    if (!rating || !nickname || !contents || imgBase64.length === 0) {
       alert("모든 폼을 입력해 주세요");
       return;
     }
@@ -29,12 +31,13 @@ const UploadReview = () => {
         id: nanoid(),
         nickname,
         contents,
+        regdt: date,
         point: rating,
         like: 0,
-        thumbnail: upload[0],
-        img: upload.slice(0),
+        thumbnail: imgBase64[0],
+        img: imgBase64.slice(0),
         comment: [],
-      }),
+      })
     );
   };
 
@@ -50,19 +53,23 @@ const UploadReview = () => {
     setContents(e.target.value);
   };
 
-  const handleChangeUpload = (file) => {
-    setUpload((prev) => [...prev, file]);
+  const handleRemoveFile = (id) => {
+    setImgBase64((prev) => prev.filter((item) => item !== id));
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.goBack}>
-          <ArrowBackIcon />
+          <Link to='/'>
+            <ArrowBackIcon />
+          </Link>
         </div>
         <div className={styles.title}>리뷰 등록</div>
         <div className={styles.escape}>
-          <ClearIcon />
+          <Link to='/'>
+            <ClearIcon />
+          </Link>
         </div>
       </div>
       <div className={styles.contentsContainer}>
@@ -81,14 +88,18 @@ const UploadReview = () => {
           />
           <div className={styles.uploadContainer}>
             <label className={styles.label}>파일 업로드</label>
-            <UploadImage onChange={handleChangeUpload} />
+            <UploadImage
+              imgBase64={imgBase64}
+              setImgBase64={setImgBase64}
+              onRemoveFile={handleRemoveFile}
+            />
           </div>
           <div>
             <Rating onChange={handleChangeRating} size="large" value={rating} />
           </div>
           <div className={styles.upload}>
             <button type="submit" className={styles.uploadBtn}>
-              업로드
+              올리기
             </button>
           </div>
         </form>
