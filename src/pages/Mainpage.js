@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import styles from './Mainpage.module.scss';
 import Header from '../components/Header';
@@ -17,8 +17,13 @@ function MainPage() {
   };
 
   useEffect(() => {
-    if (filter === 'latest') setList(data);
-    else if (filter === 'review') {
+    if (filter === 'latest') {
+      let arr = data.slice();
+      let orderedDate = arr.sort(
+        (a, b) => new Date(b.regdt) - new Date(a.regdt),
+      );
+      setList(orderedDate);
+    } else if (filter === 'review') {
       let slice = data.slice();
       slice.sort((a, b) => {
         //comment가 없으면 value가 undefined
@@ -42,13 +47,10 @@ function MainPage() {
         <Header />
       </div>
       <div className={styles.reviewContainer}>
-      <Link to="/review" style={{ textDecoration: "none" }}>
-        <div className={styles.writeReview}>
-          리뷰 작성
-          </div>
-      </Link>
+        <Link to='/review' style={{ textDecoration: 'none' }}>
+          <div className={styles.writeReview}>리뷰 작성</div>
+        </Link>
       </div>
-      
 
       <div className={styles.tab_menu}>
         <div
