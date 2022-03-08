@@ -1,24 +1,21 @@
-import styles from "./View.module.scss";
-import reviewStyles from "../pages/ReviewDetail/ReviewDetail.module.scss";
-import grid from "../images/tab_icon.png";
-import list from "../images/tab_icon_2.png";
-import { useState, useEffect } from "react";
-import useInfiniteScroll from "../hooks/useInfiniteScroll";
-import { initialData } from "../redux/data";
-import ReviewContent from "./ReviewDetail/ReviewContent";
-import Comments from "./Comments/Comments";
+import styles from './View.module.scss';
+import reviewStyles from '../pages/ReviewDetail/ReviewDetail.module.scss';
+import gridImg from '../images/tab_icon.png';
+import listImg from '../images/tab_icon_2.png';
+import { useState, useEffect } from 'react';
+import useInfiniteScroll from '../hooks/useInfiniteScroll';
+import { initialData } from '../redux/data';
+import ReviewContent from './ReviewDetail/ReviewContent';
+import Comments from './Comments/Comments';
 import { Link } from 'react-router-dom';
-
 
 function View({ list }) {
   const [isGrid, setIsGrid] = useState(true);
   const [state, setState] = useState({ itemCount: 15, isLoading: false });
 
-
   const fetchItems = async () => {
-    setState((prev) => ({ ...prev, isLoading: true }));
-    setState((prev) => ({
-
+    setState(prev => ({ ...prev, isLoading: true }));
+    setState(prev => ({
       itemCount: prev.itemCount + 3,
       isLoading: false,
     }));
@@ -39,7 +36,6 @@ function View({ list }) {
 
   return (
     <div id={styles.view_container}>
-
       <div className={styles.content_grid}>
         {/*사진 정렬 type고르는 부분 */}
         <section className={styles.type_selector_container}>
@@ -49,7 +45,7 @@ function View({ list }) {
               setIsGrid(true);
             }}
           >
-            <img src={grid} />
+            <img src={gridImg} />
           </div>
           <div
             id={isGrid ? styles.list : styles.list_selected}
@@ -57,23 +53,23 @@ function View({ list }) {
               setIsGrid(false);
             }}
           >
-            <img src={list} />
+            <img src={listImg} />
           </div>
         </section>
         {/*리뷰 보여지는 부분 */}
         {isGrid ? (
           <>
-            {initialData.slice(0, itemCount).map((elem, index) => (
+            {list.slice(0, itemCount).map((elem, index) => (
               <div key={index}>
-                <Link to = {`/${elem.id}`}>
-                <img
-                  src={elem.thumbnail}
-                  style={{ height: "165px", width: "165px" }}
-                />
+                <Link to={`/${elem.id}`}>
+                  <img
+                    src={elem.thumbnail}
+                    style={{ height: '165px', width: '165px' }}
+                  />
                 </Link>
               </div>
             ))}
-            <div ref={setRef}>{isLoading && "Loading..."}</div>
+            <div ref={setRef}>{isLoading && 'Loading...'}</div>
           </>
         ) : (
           <>
@@ -85,7 +81,7 @@ function View({ list }) {
                 </div>
               ))}
             </div>
-            <div ref={setRef}>{isLoading && "Loading..."}</div>
+            <div ref={setRef}>{isLoading && 'Loading...'}</div>
           </>
         )}
       </div>
