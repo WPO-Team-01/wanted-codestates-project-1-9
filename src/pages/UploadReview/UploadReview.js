@@ -8,7 +8,7 @@ import { useState } from "react";
 import { customAlphabet } from "nanoid";
 import { useDispatch } from "react-redux";
 import { addReview } from "../../redux/contents/contentsSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UploadReview = () => {
   const [rating, setRating] = useState(0);
@@ -16,6 +16,7 @@ const UploadReview = () => {
   const [contents, setContents] = useState("");
   const [imgBase64, setImgBase64] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const nanoid = customAlphabet("123456789", 9);
 
   const date = new Date().toISOString();
@@ -31,16 +32,18 @@ const UploadReview = () => {
     dispatch(
       addReview({
         id: nanoid(),
-        nickname,
-        contents,
+        nickname: nickname,
+        contents: contents,
         regdt: date,
         point: rating,
         like: 0,
         thumbnail: imgBase64[0],
         img: imgBase64.slice(0),
         comment: [],
-      }),
+      })
     );
+
+    navigate("/");
   };
 
   const handleChangeRating = (e, value) => {
