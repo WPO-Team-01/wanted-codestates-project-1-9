@@ -1,7 +1,7 @@
 import styles from "./View.module.scss";
 import reviewStyles from "../pages/ReviewDetail/ReviewDetail.module.scss";
-import grid from "../images/tab_icon.png";
-import list from "../images/tab_icon_2.png";
+import gridImg from "../images/tab_icon.png";
+import listImg from "../images/tab_icon_2.png";
 import { useState, useEffect } from "react";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
 import { initialData } from "../redux/data";
@@ -49,7 +49,7 @@ function View({ list }) {
               setIsGrid(true);
             }}
           >
-            <img src={grid} />
+            <img src={gridImg} />
           </div>
           <div
             id={isGrid ? styles.list : styles.list_selected}
@@ -57,7 +57,7 @@ function View({ list }) {
               setIsGrid(false);
             }}
           >
-            <img src={list} />
+            <img src={listImg} />
           </div>
         </section>
         {/*리뷰 보여지는 부분 */}
