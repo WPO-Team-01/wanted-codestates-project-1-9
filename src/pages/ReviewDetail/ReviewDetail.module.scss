@@ -6,8 +6,9 @@
   border: 1px solid #ccc;
 
   .fixedHeader {
-    position: fixed;
+    position: sticky;
     width: 500px;
+    height: 70px;
     background-color: #fff;
     z-index: 1;
 
@@ -32,7 +33,6 @@
   }
 
   .content {
-    padding-top: 4.5rem;
     .contentHeader {
       display: flex;
       padding: 1.3rem;
@@ -136,6 +136,12 @@
     .urlIcon {
       width: 5rem;
       height: 5rem;
+    }
+    input {
+      width: 1px;
+      height: 1px;
+      position: fixed;
+      top: -100%;
     }
   }
 
