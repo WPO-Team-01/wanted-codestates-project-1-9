@@ -13,13 +13,13 @@ const UploadReview = () => {
   const [rating, setRating] = useState(0);
   const [nickname, setNickname] = useState("");
   const [contents, setContents] = useState("");
-  const [upload, setUpload] = useState([]);
+  const [imgBase64, setImgBase64] = useState([]);
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!rating || !nickname || !contents || upload.length === 0) {
+    if (!rating || !nickname || !contents || imgBase64.length === 0) {
       alert("모든 폼을 입력해 주세요");
       return;
     }
@@ -31,8 +31,8 @@ const UploadReview = () => {
         contents,
         point: rating,
         like: 0,
-        thumbnail: upload[0],
-        img: upload.slice(0),
+        thumbnail: imgBase64[0],
+        img: imgBase64.slice(0),
         comment: [],
       }),
     );
@@ -50,8 +50,8 @@ const UploadReview = () => {
     setContents(e.target.value);
   };
 
-  const handleChangeUpload = (file) => {
-    setUpload((prev) => [...prev, file]);
+  const handleRemoveFile = (id) => {
+    setImgBase64((prev) => prev.filter((item) => item !== id));
   };
 
   return (
@@ -81,7 +81,11 @@ const UploadReview = () => {
           />
           <div className={styles.uploadContainer}>
             <label className={styles.label}>파일 업로드</label>
-            <UploadImage onChange={handleChangeUpload} />
+            <UploadImage
+              imgBase64={imgBase64}
+              setImgBase64={setImgBase64}
+              onRemoveFile={handleRemoveFile}
+            />
           </div>
           <div>
             <Rating onChange={handleChangeRating} size="large" value={rating} />
