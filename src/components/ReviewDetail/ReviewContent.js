@@ -33,7 +33,6 @@ const ReviewContent = ({ data }) => {
   };
 
   const onUrlClick = () => {
-    console.log("click");
     if (copyInput.current) {
       copyInput.current.select();
       copyInput.current.setSelectionRange(0, 99999);
