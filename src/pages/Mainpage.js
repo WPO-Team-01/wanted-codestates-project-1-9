@@ -54,19 +54,22 @@ function MainPage() {
       <div className={styles.tab_menu}>
         <div
           className={styles.tag}
-          onClick={() => handleChangeFilter("latest")}
+          id={filter === 'latest' ? styles.latestOn : styles.latestOff}
+          onClick={() => handleChangeFilter('latest')}
         >
           최신순
         </div>
         <div
           className={styles.tag}
-          onClick={() => handleChangeFilter("review")}
+          id={filter === 'review' ? styles.reviewOn : styles.reviewOff}
+          onClick={() => handleChangeFilter('review')}
         >
           리뷰카운트순
         </div>
         <div
           className={styles.tag}
-          onClick={() => handleChangeFilter("random")}
+          id={filter === 'random' ? styles.randomOn : styles.randomOff}
+          onClick={() => handleChangeFilter('random')}
         >
           랜덤
         </div>
