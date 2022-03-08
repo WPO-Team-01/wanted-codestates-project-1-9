@@ -1,0 +1,43 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.recomment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0 10px 40px;
+}
+
+.writer {
+  margin-right: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.content {
+  display: flex;
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.addon {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+.date {
+  color: #999999;
+  font-size: 16px;
+  font-weight: 600;
+}
+.button {
+  margin-left: 15px;
+  color: #999999;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
