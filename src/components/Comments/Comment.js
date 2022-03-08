@@ -45,7 +45,7 @@ const Comment = ({
           text={text}
           setText={setText}
           uploadComment={uploadComment}
-          target={comment.target_nickname}
+          target={comment.nickname}
         />
       ) : null}
     </>

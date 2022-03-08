@@ -29,15 +29,16 @@ const Comments = ({ comments, id }) => {
         addComment({
           id: id,
           data: {
+            nickname: "비로그인Id",
             contents: text,
             depth: 0,
-            nickname: "임시아이디1",
-            regdt: new Date(),
+            regdt: new Date().toISOString(),
             target_nickname: target,
           },
         })
       );
-      console.log("upload?");
+      setText("");
+      setinputOpen(false);
     }
   };
 
@@ -50,15 +51,16 @@ const Comments = ({ comments, id }) => {
         addComment({
           id: id,
           data: {
+            nickname: "비로그인Id",
+            regdt: new Date().toISOString(),
             contents: text,
             depth: 1,
-            nickname: "임시아이디1",
-            regdt: new Date(),
             target_nickname: target,
           },
         })
       );
-      console.log("upload?");
+      setText("");
+      setinputOpen(false);
     }
   };
 
@@ -100,7 +102,7 @@ const Comments = ({ comments, id }) => {
           text={text}
           setText={setText}
           uploadComment={uploadComment}
-          target="null"
+          target={null}
         />
       )}
     </section>
