@@ -8,7 +8,7 @@ import heart from "../../images/heart_normal.png";
 import star from "../../images/star_black.png";
 import starGray from "../../images/star_gray.png";
 import url from "../../images/share_url.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { likePlus } from "../../redux/contents/contentsSlice";
 
@@ -17,6 +17,7 @@ const ReviewContent = ({ data }) => {
   const [urlModalOpen, setUrlModalOpen] = useState(false);
   const [isLike, setIsLike] = useState(false);
   const dispatch = useDispatch();
+  const copyInput = useRef();
 
   const likeAlert = () => {
     alert("이미 좋아요를 누르셨습니다.");
@@ -31,9 +32,18 @@ const ReviewContent = ({ data }) => {
     setIsLike(true);
   };
 
+  const onUrlClick = () => {
+    console.log("click");
+    if (copyInput.current) {
+      copyInput.current.select();
+      copyInput.current.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
+  };
+
   return (
-    <div className={styles.content}>
-      <div>
+    <div>
+      <div className={styles.content}>
         <div className={styles.contentHeader}>
           <span className={styles.contentTitle}>{data.nickname}</span>
           <span>{data.regdt.slice(0, 10)}</span>
@@ -106,7 +116,7 @@ const ReviewContent = ({ data }) => {
         {/* review */}
         <div className={styles.contentComment}>
           <img src={star} className={styles.starIcon} alt="star icon" />
-          {data.point !== 1 ? (
+          {data.point >= 2 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -115,7 +125,7 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {data.point !== 2 ? (
+          {data.point >= 3 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -124,7 +134,7 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {data.point !== 3 ? (
+          {data.point >= 4 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -133,7 +143,7 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {data.point !== 4 ? (
+          {data.point >= 5 ? (
             <img src={star} className={styles.starIcon} alt="star icon" />
           ) : (
             <img
@@ -154,7 +164,17 @@ const ReviewContent = ({ data }) => {
             setUrlModalOpen(!urlModalOpen);
           }}
         >
-          <img src={url} className={styles.urlIcon} alt="url icon" />
+          <img
+            src={url}
+            className={styles.urlIcon}
+            onClick={onUrlClick}
+            alt="url icon"
+          />
+          <input
+            type="text"
+            defaultValue={window.location.href}
+            ref={copyInput}
+          />
         </div>
       ) : (
         ""

@@ -13,7 +13,6 @@ const ReviewDetail = () => {
     (item) => item.id === Number(selectId)
   );
 
-
   return (
     <div className={styles.container}>
       <div>
