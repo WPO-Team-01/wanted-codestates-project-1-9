@@ -5,7 +5,7 @@ import UploadInput from "../../components/UploadReview/UploadInput";
 import Rating from "@mui/material/Rating";
 import UploadImage from "../../components/UploadReview/UploadImage";
 import { useState } from "react";
-import { nanoid } from "nanoid";
+import { customAlphabet } from "nanoid";
 import { useDispatch } from "react-redux";
 import { addReview } from "../../redux/contents/contentsSlice";
 import { Link } from "react-router-dom";
@@ -16,6 +16,8 @@ const UploadReview = () => {
   const [contents, setContents] = useState("");
   const [imgBase64, setImgBase64] = useState([]);
   const dispatch = useDispatch();
+  const nanoid = customAlphabet("123456789", 9);
+
   const date = new Date().toISOString();
 
   const onSubmit = (e) => {
@@ -37,7 +39,7 @@ const UploadReview = () => {
         thumbnail: imgBase64[0],
         img: imgBase64.slice(0),
         comment: [],
-      })
+      }),
     );
   };
 
@@ -61,13 +63,13 @@ const UploadReview = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.goBack}>
-          <Link to='/'>
+          <Link to="/">
             <ArrowBackIcon />
           </Link>
         </div>
         <div className={styles.title}>리뷰 등록</div>
         <div className={styles.escape}>
-          <Link to='/'>
+          <Link to="/">
             <ClearIcon />
           </Link>
         </div>
