@@ -1,0 +1,87 @@
+.container {
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+
+  .comment {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px 0;
+
+    .writer {
+      margin-right: 5px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .content {
+      display: flex;
+      font-size: 18px;
+      margin: 10px 0;
+      text-align: left;
+    }
+
+    .addon {
+      width: 100%;
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .date {
+      color: #999999;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .recomment {
+      margin-left: 15px;
+      color: #999999;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .subContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 16px 0 16px 40px;
+    }
+  }
+
+  .uploadComment {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 64px;
+    margin: 0 auto;
+    border: 1px solid #999999;
+    border-radius: 30px;
+    background: white;
+    overflow: hidden;
+
+    .inputComment {
+      width: 70%;
+      border: none;
+      font-size: 20px;
+      outline: none;
+
+      ::placeholder {
+        color: #999999;
+      }
+    }
+    .upload {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      outline: 0;
+      font-size: 20px;
+      font-weight: bold;
+      background: white;
+      cursor: pointer;
+    }
+  }
+}
