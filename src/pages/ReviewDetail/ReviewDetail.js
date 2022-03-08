@@ -50,7 +50,10 @@ const ReviewDetail = () => {
         {/* contentHeader */}
         <ReviewDetailHeader />
         <ReviewContent data={data} />
-        <Comments comments={state.contents.data[0].comment} />
+        <Comments
+          comments={state.contents.data[0].comment}
+          id={state.contents.data[0].id}
+        />
       </div>
     </div>
   );

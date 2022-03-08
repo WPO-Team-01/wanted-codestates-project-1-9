@@ -5,26 +5,20 @@ import list from "../images/tab_icon_2.png";
 import { useState, useEffect } from "react";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
 import { initialData } from "../redux/data";
-import { useSelector } from "react-redux";
 import ReviewContent from "./ReviewDetail/ReviewContent";
 import Comments from "./Comments/Comments";
 import { Link } from 'react-router-dom';
 
-const fakeFetch = (delay = 1000) =>
-  new Promise((res) => setTimeout(res, delay));
 
-function View() {
+function View({ list }) {
   const [isGrid, setIsGrid] = useState(true);
   const [state, setState] = useState({ itemCount: 15, isLoading: false });
-  const getLists = useSelector((state) => state.contents.data);
 
-  let tempLists = [...getLists];
 
-  /* fake async fetch */
   const fetchItems = async () => {
     setState((prev) => ({ ...prev, isLoading: true }));
-    // await fakeFetch();
     setState((prev) => ({
+
       itemCount: prev.itemCount + 3,
       isLoading: false,
     }));
@@ -45,6 +39,7 @@ function View() {
 
   return (
     <div id={styles.view_container}>
+
       <div className={styles.content_grid}>
         {/*사진 정렬 type고르는 부분 */}
         <section className={styles.type_selector_container}>

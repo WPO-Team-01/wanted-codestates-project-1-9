@@ -16,6 +16,7 @@ const UploadReview = () => {
   const [contents, setContents] = useState("");
   const [imgBase64, setImgBase64] = useState([]);
   const dispatch = useDispatch();
+  const date = new Date().toISOString();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +31,7 @@ const UploadReview = () => {
         id: nanoid(),
         nickname,
         contents,
+        regdt: date,
         point: rating,
         like: 0,
         thumbnail: imgBase64[0],
