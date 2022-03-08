@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+
+  .header {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    width: 100%;
+    height: 78px;
+    padding: 21.9px 0 21.9px 0;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0px 3px 0px #ccc;
+
+    .title {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .goBack {
+      width: 73.547px;
+      height: 34.273px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .escape {
+      width: 73.547px;
+      height: 34.273px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .contentsContainer {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0px 3px 0px #ccc;
+    padding: 10px;
+    height: 700px;
+
+    .formContainer {
+      display: flex;
+      margin-top: 30px;
+      flex-direction: column;
+
+      div {
+        margin-top: 20px;
+      }
+      .uploadContainer {
+        display: flex;
+        flex-direction: column;
+
+        .label {
+          display: flex;
+          font-weight: bold;
+          font-size: 20px;
+          margin-left: 35px;
+          align-items: center;
+        }
+      }
+
+      .ratingContainer {
+        display: flex;
+        flex-direction: column;
+
+        .label {
+          display: flex;
+          font-weight: bold;
+          font-size: 20px;
+          margin-left: 35px;
+          align-items: center;
+        }
+      }
+
+      .uploadBtn {
+        background-color: black;
+        color: white;
+        width: 100px;
+        margin-top: 10px;
+        width: 85%;
+        height: 30px;
+        font-size: 15px;
+        border: none;
+        border-radius: 10px;
+      }
+    }
+  }
+}
