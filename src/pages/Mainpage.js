@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Mainpage.module.scss';
 import Header from '../components/Header';
 import View from '../components/View';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function MainPage() {
@@ -13,6 +13,9 @@ function MainPage() {
 
   const handleChangeFilter = f => {
     setFilter(f);
+  };
+
+  useEffect(() => {
     if (filter === 'latest') setList(data);
     else if (filter === 'review') {
       let slice = data.slice();
@@ -22,7 +25,6 @@ function MainPage() {
         let bLength = 0;
         if (a.comment) aLength = a.comment.length;
         if (b.comment) bLength = b.comment.length;
-        // console.log(aLength, bLength);
         return bLength - aLength;
       });
       setList(slice);
@@ -31,7 +33,7 @@ function MainPage() {
       slice2.sort(() => Math.random() - 0.5);
       setList(slice2);
     }
-  };
+  }, [filter]);
 
   return (
     <div className={styles.container}>
