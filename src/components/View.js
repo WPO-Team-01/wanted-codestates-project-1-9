@@ -1,22 +1,21 @@
-import styles from "./View.module.scss";
-import grid from "../images/tab_icon.png";
-import list from "../images/tab_icon_2.png";
-import { useState, useEffect } from "react";
-import useInfiniteScroll from "../hooks/useInfiniteScroll";
-import {initialData} from "../redux/data"
+import styles from './View.module.scss';
+import gridView from '../images/tab_icon.png';
+import listView from '../images/tab_icon_2.png';
+import { useState, useEffect } from 'react';
+import useInfiniteScroll from '../hooks/useInfiniteScroll';
+import { initialData } from '../redux/data';
 
-const fakeFetch = (delay = 1000) =>
-  new Promise((res) => setTimeout(res, delay));
+const fakeFetch = (delay = 1000) => new Promise(res => setTimeout(res, delay));
 
-function View() {
+function View({ list }) {
   const [isGrid, setIsGrid] = useState(true);
   const [state, setState] = useState({ itemCount: 15, isLoading: false });
 
   /* fake async fetch */
   const fetchItems = async () => {
-    setState((prev) => ({ ...prev, isLoading: true }));
+    setState(prev => ({ ...prev, isLoading: true }));
     // await fakeFetch();
-    setState((prev) => ({
+    setState(prev => ({
       itemCount: prev.itemCount + 3,
       isLoading: false,
     }));
@@ -26,6 +25,8 @@ function View() {
     fetchItems();
   }, []);
 
+  // console.log(filter);
+  // console.log(list);
   const [_, setRef] = useInfiniteScroll(async (entry, observer) => {
     observer.unobserve(entry.target);
     await fetchItems();
@@ -45,7 +46,7 @@ function View() {
             setIsGrid(true);
           }}
         >
-          <img src={grid} />
+          <img src={gridView} />
         </div>
         <div
           id={isGrid ? styles.list : styles.list_selected}
@@ -53,21 +54,21 @@ function View() {
             setIsGrid(false);
           }}
         >
-          <img src={list} />
+          <img src={listView} />
         </div>
       </section>
       {/*리뷰 보여지는 부분 */}
       {isGrid ? (
         <div className={styles.content_grid}>
-          {initialData.slice(0, itemCount).map((elem, index) => (
+          {list.slice(0, itemCount).map((elem, index) => (
             <img
               key={index}
               src={elem.thumbnail}
-              style={{ height: "8vh", width: "8vw" }}
+              style={{ height: '8vh', width: '8vw' }}
             ></img>
           ))}
-          <div ref={setRef} className="Loading">
-            {isLoading && "Loading..."}
+          <div ref={setRef} className='Loading'>
+            {isLoading && 'Loading...'}
           </div>
         </div>
       ) : (
