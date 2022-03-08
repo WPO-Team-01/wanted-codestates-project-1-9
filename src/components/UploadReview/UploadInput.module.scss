@@ -1,0 +1,20 @@
+.inputContainer {
+  .label {
+    display: flex;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 35px;
+    align-items: center;
+  }
+
+  .input {
+    margin-top: 10px;
+    font-size: 15px;
+    height: 25px;
+    width: 400px;
+    margin-right: auto;
+    padding-left: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+}
