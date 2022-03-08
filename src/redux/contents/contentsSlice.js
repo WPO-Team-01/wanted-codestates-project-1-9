@@ -26,6 +26,6 @@ export const contentsSlice = createSlice({
   },
 });
 
-export const { addReview } = contentsSlice.actions;
+export const { addReview, likePlus } = contentsSlice.actions;
 
 export default contentsSlice.reducer;

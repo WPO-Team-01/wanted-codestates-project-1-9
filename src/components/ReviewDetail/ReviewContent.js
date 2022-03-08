@@ -21,11 +21,15 @@ const ReviewContent = ({ data }) => {
 
   const likeAlert = () => {
     alert("이미 좋아요를 누르셨습니다.");
-    // dispatch(
-    //   likePlus({
-    //     id: data.id,
-    //   })
-    // );
+  };
+
+  const likeOn = () => {
+    dispatch(
+      likePlus({
+        id: data.id,
+      })
+    );
+    setIsLike(true);
   };
 
   return (
@@ -82,7 +86,7 @@ const ReviewContent = ({ data }) => {
                   src={thumb}
                   className={styles.thumbIcon}
                   onClick={() => {
-                    setIsLike(true);
+                    likeOn();
                   }}
                   alt="thumb icon"
                 />
@@ -139,7 +143,6 @@ const ReviewContent = ({ data }) => {
               alt="star icon"
             />
           )}
-          {/* <img src={starGray} className={styles.starGrayIcon} alt="star icon" /> */}
 
           <p>{data.contents}</p>
         </div>
