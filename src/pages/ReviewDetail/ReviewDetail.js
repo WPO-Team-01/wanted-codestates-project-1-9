@@ -23,8 +23,8 @@ const ReviewDetail = () => {
         </div>
         <ReviewContent data={selectedReview[0]} />
         <Comments
-          comments={state.contents.data[0].comment}
-          id={state.contents.data[0].id}
+          comments={selectedReview[0].comment}
+          id={selectedReview[0].id}
         />
       </div>
     </div>
