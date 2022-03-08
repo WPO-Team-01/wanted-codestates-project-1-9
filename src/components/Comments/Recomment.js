@@ -7,17 +7,16 @@ import Input from "./Input";
 
 const Recomment = ({
   comment,
-  index,
-  inputIndex,
-  handleIndex,
+  inputOpen,
+  setInputOpen,
+  inputId,
+  handleInputId,
   text,
   setText,
   uploadComment,
 }) => {
-  const [isInputOpen, setIsInputOpen] = React.useState(false);
-
   const handleInput = () => {
-    setIsInputOpen((prev) => !prev);
+    setInputOpen((inputOpen) => !inputOpen);
   };
 
   return (
@@ -39,14 +38,14 @@ const Recomment = ({
             className={classNames(styles.button)}
             onClick={() => {
               handleInput();
-              handleIndex(index);
+              handleInputId(comment.id);
             }}
           >
-            {isInputOpen ? "답글 취소" : "답글 달기"}
+            {inputId === comment.id && inputOpen ? "답글 취소" : "답글 달기"}
           </span>
         </div>
       </section>
-      {index === inputIndex && isInputOpen ? (
+      {inputId === comment.id && inputOpen ? (
         <Input
           text={text}
           setText={setText}
