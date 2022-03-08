@@ -8,19 +8,20 @@ import Input from "./Input";
 const Comment = ({
   comment,
   index,
-  inputOpen,
-  setinputOpen,
   inputIndex,
   handleIndex,
   text,
   setText,
   uploadComment,
 }) => {
+  const [isInputOpen, setIsInputOpen] = React.useState(false);
+
   const handleInput = () => {
-    setinputOpen(!inputOpen);
+    setIsInputOpen((prev) => !prev);
   };
+
   return (
-    <>
+    <div>
       <section className={classNames(styles.comment)}>
         <span className={classNames(styles.writer)}>{comment.nickname}</span>
         <div className={classNames(styles.content)}>{comment.contents}</div>
@@ -36,19 +37,19 @@ const Comment = ({
               handleIndex(index);
             }}
           >
-            {inputOpen ? "답글 취소" : "답글 달기"}
+            {index === inputIndex && isInputOpen ? "답글 취소" : "답글 달기"}
           </span>
         </div>
       </section>
-      {index === inputIndex && inputOpen ? (
+      {index === inputIndex && isInputOpen ? (
         <Input
           text={text}
           setText={setText}
           uploadComment={uploadComment}
-          target={comment.nickname}
+          target={comment}
         />
       ) : null}
-    </>
+    </div>
   );
 };
 

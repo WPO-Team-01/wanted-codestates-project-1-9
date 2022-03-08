@@ -3,8 +3,7 @@ import ReviewDetailHeader from "../../components/ReviewDetail/ReviewDetailHeader
 import ReviewContent from "../../components/ReviewDetail/ReviewContent";
 import Comments from "../../components/Comments/Comments";
 import { useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
-
+import { useParams } from "react-router-dom";
 
 const ReviewDetail = () => {
   let state = useSelector((state) => state);
@@ -23,11 +22,10 @@ const ReviewDetail = () => {
           <ReviewDetailHeader />
         </div>
         <ReviewContent data={selectedReview[0]} />
-         <Comments
+        <Comments
           comments={state.contents.data[0].comment}
           id={state.contents.data[0].id}
         />
-
       </div>
     </div>
   );
